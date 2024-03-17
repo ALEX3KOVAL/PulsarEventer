@@ -1,0 +1,46 @@
+[versions]
+kotlin = "1.9.20"
+
+kotlinSerializationPlugin = "1.8.21"
+kotlinxSerialization = "1.5.1"
+kotlinxCoroutines = "1.8.0-RC2"
+
+icu4j = "72.1"
+
+pulsarClient = "3.1.2"
+pulsarClientApi = "3.1.2"
+
+postgres = "42.5.4"
+exposed = "0.40.1"
+
+koinCore = "3.5.0"
+
+kaml = "0.53.0"
+
+hikari = "5.0.1"
+
+
+[libraries]
+icu4j = { module = "com.ibm.icu:icu4j", version.ref = "icu4j" }
+
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
+
+pulsar-client = { module = "org.apache.pulsar:pulsar-client", version.ref = "pulsarClient" }
+pulsar-client-api = { module = "org.apache.pulsar:pulsar-client-api", version.ref = "pulsarClientApi" }
+
+postgres = { module = "org.postgresql:postgresql", version.ref = "postgres" }
+exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
+exposed-dao = { module = "org.jetbrains.exposed:exposed-dao", version.ref = "exposed" }
+exposed-javaTime = { module = "org.jetbrains.exposed:exposed-java-time", version.ref = "exposed" }
+
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koinCore" }
+
+kaml = { module = "com.charleskorn.kaml:kaml", version.ref = "kaml" }
+
+hikari = { module = "com.zaxxer:HikariCP", version.ref = "hikari" }
+
+
+[plugins]
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinSerializationPlugin" }
+jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
