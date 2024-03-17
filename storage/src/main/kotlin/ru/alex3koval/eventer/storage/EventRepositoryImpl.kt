@@ -11,18 +11,18 @@ class EventRepositoryImpl : EventRepository {
             .select { EventStoreTable.id eq id.value }
             .limit(1)
             .singleOrNull()
-            ?.let { row ->
+            ?.run {
                 EventRDTO(
-                    id = row[EventStoreTable.id].value.let { EventID(it).getOrThrow() },
-                    aggregateId = row[EventStoreTable.aggregateId],
-                    topic = row[EventStoreTable.topic],
-                    hash = row[EventStoreTable.hash],
-                    jsonPayload = row[EventStoreTable.jsonPayload],
-                    producer = row[EventStoreTable.producer],
-                    type = row[EventStoreTable.type],
-                    createdAt = row[EventStoreTable.createdAt],
-                    updatedAt = row[EventStoreTable.updatedAt],
-                    comment = row[EventStoreTable.comment]
+                    id = get(EventStoreTable.id).value.let { EventID(it).getOrThrow() },
+                    aggregateId = get(EventStoreTable.aggregateId),
+                    topic = get(EventStoreTable.topic),
+                    hash = get(EventStoreTable.hash),
+                    jsonPayload = get(EventStoreTable.jsonPayload),
+                    producer = get(EventStoreTable.producer),
+                    type = get(EventStoreTable.type),
+                    comment = get(EventStoreTable.comment),
+                    createdAt = get(EventStoreTable.createdAt),
+                    updatedAt = get(EventStoreTable.updatedAt),
                 )
             }
 }
