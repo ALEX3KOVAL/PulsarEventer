@@ -13,7 +13,16 @@ class EventRepositoryImpl : EventRepository {
             .singleOrNull()
             ?.let { row ->
                 EventRDTO(
-                    row[EventStoreTable.id].value.let { EventID(it).getOrThrow() }
+                    id = row[EventStoreTable.id].value.let { EventID(it).getOrThrow() },
+                    aggregateId = row[EventStoreTable.aggregateId],
+                    topic = row[EventStoreTable.topic],
+                    hash = row[EventStoreTable.hash],
+                    jsonPayload = row[EventStoreTable.jsonPayload],
+                    producer = row[EventStoreTable.producer],
+                    type = row[EventStoreTable.type],
+                    createdAt = row[EventStoreTable.createdAt],
+                    updatedAt = row[EventStoreTable.updatedAt],
+                    comment = row[EventStoreTable.comment]
                 )
             }
 }
