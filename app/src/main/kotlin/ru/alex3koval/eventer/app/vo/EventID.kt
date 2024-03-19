@@ -5,7 +5,7 @@ import ru.alex3koval.eventer.app.extensions.failIf
 
 class EventID private constructor(val value: Int) {
     init {
-        failIf { value < 0 } message "ID события должен быть больше 0"
+        failIf { value <= 0 } message "ID события должен быть больше 0"
     }
 
     companion object {
